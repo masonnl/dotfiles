@@ -1,0 +1,17 @@
+# Theme
+include current-theme.conf
+
+# Background
+background_opacity 0.85
+background_blur    10
+
+# Font
+font_family      family='Hack Nerd Font' postscript_name=HackNF-Regular
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+
+# Font style
+font_size            13
+url_style            straight
+underline_hyperlinks always

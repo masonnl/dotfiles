@@ -1,0 +1,4 @@
+# TTY1 should initiate the display session upon booting.
+if uwsm check may-start; then
+  exec uwsm start hyprland-uwsm.desktop
+fi

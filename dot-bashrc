@@ -1,0 +1,12 @@
+alias lg=lazygit
+alias g=git
+alias ga='git add'
+alias gc='git commit'
+alias gst='git status'
+alias ggpush='git push'
+
+alias ll='ls -a -l'
+
+alias v=nvim
+alias vi=nvim
+alias vim=nvim
