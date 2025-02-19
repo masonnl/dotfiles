@@ -8,7 +8,7 @@
   "spacing": 0,
   "modules-left": ["custom/launcher","hyprland/workspaces","cpu","memory"],
   "modules-center": ["custom/song_name","custom/pre","custom/spotify","custom/next"],
-  "modules-right": ["custom/ibus","tray","network", "pulseaudio","clock","custom/powermenu"],
+  "modules-right": ["custom/ibus","tray","network", "pulseaudio","clock","custom/powermenu","battery"],
 
   "hyprland/window": {
     "format": "👉 {}",
@@ -45,9 +45,16 @@
     "format": "   {}% ",
     "max-length": 10
   },
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-icons": {
+      "charging": [ "󰂄" ],
+      "default": [ "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰂂" ]
+    },
+  },
   "cpu": {
     "interval": 1,
-    "format": "   {}% ",
+    "format": "   {}% ",
     "max-length": 10
   },
   "tray": {
