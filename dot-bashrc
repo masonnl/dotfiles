@@ -10,3 +10,6 @@ alias ll='ls -a -l'
 alias v=nvim
 alias vi=nvim
 alias vim=nvim
+
+# Start direnv
+eval "$(direnv hook bash)"
