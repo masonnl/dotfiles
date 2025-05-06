@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # This script will randomly go through the files of a directory, setting it
 # up as the wallpaper at regular intervals
@@ -9,6 +9,12 @@ if [[ $# -lt 1 ]] || [[ ! -d $1   ]]; then
   echo "Usage:
   $0 <dir containing images>"
   exit 1
+fi
+
+# Start swww-daemon
+if ! pidof swww-daemon > /dev/null; then
+  swww-daemon&
+  sleep 1
 fi
 
 # Edit below to control the images transition
