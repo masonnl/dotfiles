@@ -1,10 +1,14 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 32,
-  "spacing": 0,
+  "height": 20,
+  "spacing": 8,
+  "margin-top": 4,
+  "margin-right": 8,
+  "margin-bottom": 0,
+  "margin-left": 8,
   "modules-left": ["custom/launcher","hyprland/workspaces","cpu","memory"],
-  "modules-center": [],
+  //"modules-center": [],
   "modules-right": ["tray", "network", "pulseaudio", "clock", "battery", "custom/powermenu"],
 
   "hyprland/window": {
@@ -39,7 +43,7 @@
   },
   "memory": {
     "interval": 3,
-    "format": "   {}% ",
+    "format": " {}% ",
     "max-length": 10
   },
   "battery": {
@@ -51,19 +55,18 @@
   },
   "cpu": {
     "interval": 1,
-    "format": "   {}% ",
+    "format": " {}% ",
     "max-length": 10
   },
   "tray": {
-        // "icon-size": 21,
-        "spacing": 10
+    "spacing": 8
   },
   "clock": {
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "format-alt": "   {:%a, %d %b %Y} ",
-    "format": " ⠀{:%H:%M} ",
+    "format-alt": "  {:%a, %d %b %Y} ",
+    "format": "⠀{:%H:%M} ",
     "calendar": {
-      "weeks-pos"     : "none",
+      "weeks-pos": "none",
       "on-scroll"     : 1,
       "format": {
         "months":     "<span color='#8fbcbb'><b>{}</b></span>",
@@ -79,13 +82,11 @@
     "format-wifi": "{icon}",
     "format-disconnected": "󰤭 ",
     "format-icons": ["󰤯 ","󰤟 ","󰤢 ","󰤥 ","󰤨 "],
-    "tooltip-format-wifi": "{essid}",
-    "tooltip-format-ethernet": "IP: {ipaddr}",
-    "nospacing": 1,
+    "tooltip-format-wifi": "{essid}: {ipaddr}",
+    "tooltip-format-ethernet": "{ipaddr}",
   },
   "pulseaudio": {
     "format": "{icon}{volume}%",
-    "nospacing": 1,
     "tooltip-format": "Volume: {volume}%",
     "format-muted": "󰝟 ",
     "format-icons": {
@@ -102,29 +103,4 @@
     "on-click": "tofi-drun | xargs hyprctl dispatch exec --",
     "on-click-right": "~/.config/waybar/scripts/swww.sh ~/Pictures/Wallpapers/ &"
   },
-  //"custom/next": {
-  //  "exec": "python3 ~/.config/waybar/scripts/next.py --player spotify",
-  //  "format": "{}",
-  //  "tooltip": false,
-  //  "on-click": "playerctl next",
-  //  "return-type": "json",
-  //},
-  //"custom/pre": {
-  //  "exec": "python3 ~/.config/waybar/scripts/pre.py --player spotify",
-  //  "format": "{}",
-  //  "tooltip": false,
-  //  "on-click": "playerctl previous",
-  //  "return-type": "json",
-  //},
-  //"custom/spotify": {
-  //  "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
-  //  "format": "{}",
-  //  "return-type": "json",
-  //  "on-click": "playerctl play-pause",
-  //},
-  //"custom/song_name": {
-  //  "exec": "python3 ~/.config/waybar/scripts/spotify.py --player spotify",
-  //  "format": "{}",
-  //  "return-type": "json",
-  //},
 }
