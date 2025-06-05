@@ -14,4 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   { import = "masonnl.plugins" },
   { import = "masonnl.plugins.lsp" },
+  -- Do not reset the packpath during startup
+  performance = {
+    reset_packpath = false,
+  },
 })
+vim.cmd('packloadall')
