@@ -2,23 +2,40 @@
   "layer": "top",
   "position": "top",
   "height": 20,
-  "spacing": 8,
-  "margin-top": 4,
-  "margin-right": 8,
+  "spacing": 0,
+  "margin-top": 0,
+  "margin-right": 0,
   "margin-bottom": 0,
-  "margin-left": 8,
-  "modules-left": ["custom/launcher","hyprland/workspaces","cpu","memory"],
-  //"modules-center": [],
-  "modules-right": ["tray", "network", "pulseaudio", "clock", "battery", "custom/powermenu"],
+  "margin-left": 0,
+  "modules-left": [
+    "custom/launcher",
+    "custom/right-border-darkest",
 
-  "hyprland/window": {
-    "format": "👉 {}",
-    "rewrite": {
-      "(.*) - Mozilla Firefox": "🌎 $1",
-      "(.*) - kitty": "> [$1]"
-    },
-    "separate-outputs": true
-  },
+    "hyprland/workspaces",
+    "custom/right-border-darker",
+
+    "cpu",
+    "custom/right-border-dark",
+
+    "memory",
+    "custom/right-border-less-no-bg",
+  ],
+  "modules-right": [
+    "custom/left-border-light-no-bg",
+    "tray",
+
+    "custom/left-border-less",
+    "network",
+
+    "custom/left-border-dark",
+    "pulseaudio",
+
+    "custom/left-border-darker",
+    "clock",
+
+    "custom/left-border-darkest",
+    "battery",
+  ],
 
   "hyprland/workspaces": {
     "active-only": false,
@@ -62,18 +79,18 @@
     "spacing": 8
   },
   "clock": {
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "tooltip-format": "<tt>{calendar}</tt>",
     "format-alt": "  {:%a, %d %b %Y} ",
     "format": "⠀{:%H:%M} ",
     "calendar": {
       "weeks-pos": "none",
       "on-scroll"     : 1,
       "format": {
-        "months":     "<span color='#8fbcbb'><b>{}</b></span>",
-        "days":       "<span color='#8a909e'>{}</span>",
-        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays":   "<span color='#81a1c1'><b>{}</b></span>",
-        "today":      "<span color='#88c0d0'><b>{}</b></span>"
+        "months":     "<span color='#8585ad'><b>{}</b></span>",
+        "days":       "<span color='#8585ad'>{}</span>",
+        "weeks":      "<span color='#8585ad'><b>W{}</b></span>",
+        "weekdays":   "<span color='#8585ad'><b>{}</b></span>",
+        "today":      "<span color='#cc9900'><b>{}</b></span>"
       }
     }
   },
@@ -97,10 +114,61 @@
     "on-click-right": "pavucontrol",
     "scroll-step": 5,
   },
+  
+  // define custom modules that will behave as borders between modules
+  "custom/right-border-darkest": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/right-border-darker": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/right-border-dark": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/right-border-less": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/right-border-less-no-bg": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/right-border-light": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/left-border-darkest": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/left-border-darker": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/left-border-dark": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/left-border-less": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/left-border-light": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/left-border-light-no-bg": {
+    "format": "",
+    "tooltip": false,
+  },
+
   "custom/launcher": {
-    "format": "  ",
+    "format": " ",
     "tooltip": false,
     "on-click": "tofi-drun | xargs hyprctl dispatch exec --",
     "on-click-right": "~/.config/waybar/scripts/swww.sh ~/Pictures/Wallpapers/ &"
-  },
+  }
 }

@@ -1,13 +1,28 @@
-@define-color background-color #3b4252;
-@define-color color-default #8a909e;
-@define-color color-red #fb958b;
-@define-color color-blue #5E81AC;
+/* https://www.w3schools.com/colors/colors_picker.asp #666699 */
+@define-color bg-dark-darkest #3d3d5c;
+@define-color bg-dark-darker #52527a;
+@define-color bg-dark #666699;
+@define-color bg-dark-less #7575a3;
+@define-color bg-dark-light #8585ad;
+
+@define-color fg-color-error #ff471a;
+@define-color fg-color #cc9900;
+@define-color fg-color-alert #e6e600;
+
+@keyframes button_activate {
+  from { opacity: .3 }
+  to { opacity: 1 }
+}
+
+@keyframes blink_alert {
+  from { background-color: @bg-dark-darker; }
+  to { background-color: @fg-color-alert; }
+}
 
 * {
-  color: @color-default;
+  color: @fg-color;
   font-family: Hack Nerd Font;
   font-size: 16px;
-  min-height: 20px;
 }
 
 #waybar {
@@ -18,70 +33,37 @@
   opacity: 0.2;
 }
 
-.modules-left {
-  background-color: @background-color;
-  border-radius: 8px;
+#custom-launcher {
+  background-color: @bg-dark-darkest;
+  padding-left: 16px;
 }
 
-/* TODO*/
-/*.modules-center {*/
-/*  background-color: @background-color;*/
-/*  border-radius: 8px;*/
-/*  padding: 0 8px;*/
-/*}*/
-
-.modules-right {
-  background-color: @background-color;
-  border-radius: 8px;
-  padding: 0 8px;
-}
-
-@keyframes button_activate {
-  from { opacity: .3 }
-  to { opacity: 1.; }
+#workspaces {
+  background-color: @bg-dark-darker;
+  padding-left: 16px;
 }
 
 #workspaces button.active {
-  background: radial-gradient(circle, rgba(20, 48, 187, 0.699) 5%, rgba(36, 39, 54, 0.5) 18%, rgba(132,129,156,0) 23%, rgba(70, 76, 98, 0.201) 24%, rgba(132,129,156,0) 30%);
   animation: button_activate .2s ease-in-out;
 }
 
 #workspaces button.urgent {
-  background: radial-gradient(circle, rgba(25, 79, 255, 0.3) 20%, rgba(132,129,156,0) 30%);
+  animation: blink_alert .2s ease-in-out;
 }
 
-#custom-launcher {
-  color: @color-blue;
+#cpu {
+  padding-left: 16px;
+  background-color: @bg-dark;
 }
 
-#pulseaudio.muted {
-  color: @color-red;
+#memory {
+  padding-left: 16px;
+  background-color: @bg-dark-less;
 }
 
-#network {
-  color: @color-blue;
-}
-
-#network.disconnected {
-  color: @color-red;
-}
-
-#clock {
-  color: @color-default;
-}
-
-tooltip {
-  border-radius: 8px;
-  background-color: #242933;
-}
-
-tooltip label {
-  color: #8a909e;
-  background-color: #242933;
-}
-
-label:focus {
-  background-color: #242933;
+#tray {
+  background-color: @bg-dark-light;
+  padding-right: 16px;
 }
 
 #tray > .passive {
@@ -90,5 +72,115 @@ label:focus {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
+  background-color: @fg-color-alert;
 }
+
+#network {
+  background-color: @bg-dark-less;
+  padding-right: 16px;
+}
+
+#network.disconnected {
+  color: @fg-color-error;
+}
+
+#pulseaudio {
+  background-color: @bg-dark;
+  padding-right: 16px;
+}
+
+#pulseaudio.muted {
+  color: @fg-color-error;
+}
+
+#clock {
+  background-color: @bg-dark-darker;
+  padding-right: 16px;
+}
+
+#battery {
+  background-color: @bg-dark-darkest;
+  padding-right: 16px;
+}
+
+tooltip {
+  background-color: @bg-dark-darkest;
+  border-radius: 8px;
+}
+
+tooltip label {
+  /**
+  * Colors are set within inline css in config.json
+  */
+  background-color: @bg-dark-darkest;
+  color: @bg-dark-light;
+  font-size: 16px;
+  padding: 4px;
+}
+
+#custom-right-border-darkest,
+#custom-left-border-darkest {
+  color: @bg-dark-darkest;
+  font-size: 28px;
+}
+#custom-right-border-darker,
+#custom-left-border-darker {
+  color: @bg-dark-darker;
+  font-size: 28px;
+}
+#custom-right-border-dark,
+#custom-left-border-dark {
+  color: @bg-dark;
+  font-size: 28px;
+}
+#custom-right-border-less,
+#custom-left-border-less {
+  color: @bg-dark-less;
+  font-size: 28px;
+}
+#custom-right-border-less-no-bg,
+#custom-left-border-less-no-bg {
+  color: @bg-dark-less;
+  font-size: 28px;
+}
+#custom-right-border-light,
+#custom-left-border-light {
+  color: @bg-dark-light;
+  font-size: 28px;
+}
+#custom-right-border-light-no-bg,
+#custom-left-border-light-no-bg {
+  color: @bg-dark-light;
+  font-size: 28px;
+}
+#custom-right-border-darkest {
+  background-color: @bg-dark-darker;
+}
+#custom-right-border-darker {
+  background-color: @bg-dark;
+}
+#custom-right-border-dark {
+  background-color: @bg-dark-less;
+}
+#custom-right-border-less {
+  background-color: @bg-dark-light;
+}
+#custom-right-border-less-no-bg {
+  background-color: transparent;
+}
+#custom-left-border-darkest {
+  background-color: @bg-dark-darker;
+}
+#custom-left-border-darker {
+  background-color: @bg-dark;
+}
+#custom-left-border-dark {
+  background-color: @bg-dark-less;
+}
+#custom-left-border-less {
+  background-color: @bg-dark-light;
+}
+#custom-left-border-light-no-bg {
+  background-color: transparent;
+}
+
